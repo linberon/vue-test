@@ -1,25 +1,22 @@
-Vue.component("shop-list", {
+Vue.component("modal", {
 	template: `
-	<div>
-	<list v-for="item in items">{{item.description}}</list>
-	</div>`,
-
-	data() {
-		return {
-			items: [
-				{ description: "pineapple", complete: true },
-				{ description: "coconut", complete: true },
-				{ description: "mango", complete: false },
-				{ description: "banana", complete: true }
-			]
-		};
-	}
-});
-
-Vue.component("list", {
-	template: "<li><slot></slot></li>"
+	
+	<div class="modal is-active">
+	  <div class="modal-background"></div>
+	  <div class="modal-content">
+	  <div class='box'>
+	  	<p>Lorem ipsum dolor dit amet</p>
+	  </div>
+	  <button class="modal-close is-large" aria-label="close"
+	  @click='$emit("close")'></button>
+	</div>
+	</div>`
 });
 
 new Vue({
-	el: "#root"
+	el: "#root",
+
+	data: {
+		showModal: false
+	}
 });

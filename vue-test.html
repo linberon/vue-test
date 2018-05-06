@@ -2,14 +2,20 @@
 <html>
 <head>
 
-	<title>Components Within Components</title>
+	<title>Practical Components 1: Message</title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+
+	<style type="text/css">body{padding-top:40px;}</style>
 
 </head>
 <body>
 
-<div id="root">
+<div id="root" class="container">
 
-<shop-list></shop-list>
+	<modal v-if='showModal' @close='showModal=false'></modal>
+
+	<button @click='showModal=true'>Show Modal</button>
 
 </div>
 
