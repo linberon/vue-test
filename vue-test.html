@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+
+	<title>Computed Properties</title>
+
 </head>
 <body>
 
 <div id="root">
 
+<h1>All Tasks</h1>
+
 <ul>
-	<li v-for="name in names" v-text="name"></li>
+	<li v-for="task in tasks" v-text="task.description"></li>
 </ul>
 
-<input id="input" type="text"  v-model="newName">
-<button @click="addName">Add name</button>
+<h2>Incomplete Tasks</h2>
+
+<ul>
+	<li v-for="task in incompleteTasks" v-text="task.description"></li>
+</ul>
 
 </div>
 
@@ -26,15 +33,18 @@
 
 		data: {
 
-			newName: '',
-			names: ['Tinky', 'Winky', 'Lala', 'Po']
+			tasks: [
+			{description: 'Read mail', completed: true},
+			{description: 'Walk dog', completed: false},
+			{description: 'Water plants', completed: false},
+			{description: 'Make lunch', completed: true},
+			]
+			
 		},
 
-		methods: {
-
-			addName(){
-				this.names.push(this.newName);
-				this.newName = '';
+		computed: {
+			incompleteTasks(){
+				return this.tasks.filter(task => ! task.completed);
 			}
 		}
 
