@@ -2,20 +2,34 @@
 <html>
 <head>
 
-	<title>Practical Components 1: Message</title>
+	<title>Practical Components 3: Tabs</title>
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
 
-	<style type="text/css">body{padding-top:40px;}</style>
+	<style>
+		body{padding-top:40px;}
+	</style>
 
 </head>
 <body>
 
 <div id="root" class="container">
 
-	<modal v-if='showModal' @close='showModal=false'></modal>
+	<tabs>
 
-	<button @click='showModal=true'>Show Modal</button>
+		<tab name="About" :selected='true'>
+			<h1>This is the content for the About tab.</h1>
+		</tab>
+
+		<tab name="Music">
+			<h1>This is the content for the Music tab.</h1>
+		</tab>
+
+		<tab name="Gallery">
+			<h1>This is the content for the Gallery tab.</h1>
+		</tab>
+
+	</tabs>
 
 </div>
 
