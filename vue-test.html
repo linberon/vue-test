@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Practical Components 3: Tabs</title>
+	<title>Single-Use Components and Inline Templates</title>
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
 
@@ -15,21 +15,15 @@
 
 <div id="root" class="container">
 
-	<tabs>
+<progress-view inline-template>
 
-		<tab name="About" :selected='true'>
-			<h1>This is the content for the About tab.</h1>
-		</tab>
+	<div>	
+		<h1>Course Progress {{completionRate}}%</h1>
 
-		<tab name="Music">
-			<h1>This is the content for the Music tab.</h1>
-		</tab>
-
-		<tab name="Gallery">
-			<h1>This is the content for the Gallery tab.</h1>
-		</tab>
-
-	</tabs>
+		<p><button @click="completionRate += 10">Update Completion Rate</button></p>
+	</div>
+	
+</progress-view>
 
 </div>
 
